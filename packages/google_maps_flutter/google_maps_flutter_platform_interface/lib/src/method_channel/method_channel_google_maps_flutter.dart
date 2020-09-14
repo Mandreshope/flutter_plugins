@@ -124,6 +124,7 @@ class MethodChannelGoogleMapsFlutter extends GoogleMapsFlutterPlatform {
   Future<dynamic> _handleMethodCall(MethodCall call, int mapId) async {
     switch (call.method) {
       case 'camera#onMoveStarted':
+        print('camera#onMoveStar ${call.arguments}');
         _mapEventStreamController.add(CameraMoveStartedEvent(mapId));
         break;
       case 'camera#onMove':
