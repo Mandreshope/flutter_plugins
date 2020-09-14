@@ -55,12 +55,9 @@ class GoogleMapController {
 
   void _connectStreams(int mapId) {
     if (_googleMapState.widget.onCameraMoveStarted != null) {
-      _googleMapsFlutterPlatform
-          .onCameraMoveStarted(mapId: mapId)
-          .listen((_) {
-            print('onCameraMoveStarted $_');
-            _googleMapState.widget.onCameraMoveStarted();
-      });
+      _googleMapsFlutterPlatform.onCameraMoveStarted(mapId: mapId).listen(
+          (CameraMoveStartedEvent e) =>
+              _googleMapState.widget.onCameraMoveStarted(e.value));
     }
     if (_googleMapState.widget.onCameraMove != null) {
       _googleMapsFlutterPlatform.onCameraMove(mapId: mapId).listen(
