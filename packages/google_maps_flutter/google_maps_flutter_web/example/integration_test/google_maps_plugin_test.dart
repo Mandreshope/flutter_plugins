@@ -338,7 +338,7 @@ void main() {
 
       // Camera events
       testWidgets('onCameraMoveStarted', (WidgetTester tester) async {
-        final event = CameraMoveStartedEvent(mapId);
+        final event = CameraMoveStartedEvent(mapId, true);
 
         final stream = plugin.onCameraMoveStarted(mapId: mapId);
 

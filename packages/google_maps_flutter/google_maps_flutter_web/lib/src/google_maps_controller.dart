@@ -178,7 +178,7 @@ class GoogleMapController {
     map.onBoundsChanged.listen((event) {
       if (!_mapIsMoving) {
         _mapIsMoving = true;
-        _streamController.add(CameraMoveStartedEvent(_mapId));
+        _streamController.add(CameraMoveStartedEvent(_mapId, _mapIsMoving));
       }
       _streamController.add(
         CameraMoveEvent(_mapId, _gmViewportToCameraPosition(map)),
